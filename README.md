@@ -2,10 +2,10 @@
 
 # OOP school library
 
-> Add Person, Student and Teacher classes
+> Decorate a class
 
 
-In this project, I start building a school library app. For this initial step, I implement the classes to represent students and teachers.
+In this project, you use the Decorator design pattern to validate and correct the names of people.
 
 
 Additional description about the project and its features.
@@ -20,7 +20,7 @@ Additional description about the project and its features.
 ```
 git clone https://github.com/ntzwilly/school-library.git
 cd school-library
-git checkout feature
+git checkout decorate-class
 ```
 ## Authors
 
