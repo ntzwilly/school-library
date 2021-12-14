@@ -20,7 +20,7 @@ Additional description about the project and its features.
 ```
 git clone https://github.com/ntzwilly/school-library.git
 cd school-library
-git checkout feature
+git checkout decorate-class
 ```
 ## Authors
 
