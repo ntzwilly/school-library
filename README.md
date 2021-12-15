@@ -2,10 +2,10 @@
 
 # OOP school library
 
-> Decorate a class
+> Set up associations
 
 
-In this project, you use the Decorator design pattern to validate and correct the names of people.
+In this project, I create the associations between classes of our school library.
 
 
 Additional description about the project and its features.
@@ -20,7 +20,7 @@ Additional description about the project and its features.
 ```
 git clone https://github.com/ntzwilly/school-library.git
 cd school-library
-git checkout decorate-class
+git checkout set-associations
 ```
 ## Authors
 
