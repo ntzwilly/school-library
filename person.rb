@@ -31,4 +31,3 @@ class Person
     "Name: #{@name}, ID: #{@id}, Age: #{@age}"
   end
 end
-
