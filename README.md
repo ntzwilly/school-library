@@ -16,11 +16,12 @@ Additional description about the project and its features.
 
 ## Get started
 
- Clone this repository to your local machine by runing these comand on your local terminal
+ In order to have this application up and running, clone this repository by running these commands on your local terminal
 ```
 git clone https://github.com/ntzwilly/school-library.git
 cd school-library
 git checkout add-basic-ui
+main
 ```
 ## Authors
 
