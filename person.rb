@@ -26,10 +26,9 @@ class Person
   def of_age?
     @age >= 18
   end
+
+  def to_s
+    "Name: #{@name}, ID: #{@id}, Age: #{@age}"
+  end
 end
 
-person_one = Person.new(age: 32, name: 'abraracourcix')
-person_two = Person.new(age: 37, name: 'willy')
-
-puts person_one.validate_name
-puts person_two.validate_name
