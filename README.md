@@ -2,11 +2,11 @@
 
 # OOP school library
 
-> Set up associations
+> Add basic UI
 
+![app](https://user-images.githubusercontent.com/9049260/146368273-2f3436b0-c24d-457d-a6b9-5d206a40bc12.png)
 
-In this project, I create the associations between classes of our school library.
-
+In this project, I create a form of UI for the school library app. This way it can be invoked as an executable and not something you use in IRB exclusively.
 
 Additional description about the project and its features.
 
@@ -20,7 +20,7 @@ Additional description about the project and its features.
 ```
 git clone https://github.com/ntzwilly/school-library.git
 cd school-library
-git checkout set-associations
+git checkout add-basic-ui
 ```
 ## Authors
 
