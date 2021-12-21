@@ -2,6 +2,7 @@ require './book'
 require './person'
 require './student'
 require './teacher.rb'
+require './rental.rb'
 
 module Actions
   def list_books
@@ -58,5 +59,21 @@ module Actions
     book = Book.new(title, author)
     @books.push(book)
     puts 'Book created successfully'
+  end
+
+  def create_rental
+    puts 'Select a book from the following list by number'
+    @books.each_with_index { |book, i| puts "#{i}) #{book}" }
+    book_i = gets.chomp.to_i
+    puts
+    puts 'Select a person from the following list by number (not ID)'
+    @people.each_with_index { |person, i| puts "#{i}) #{person}" }
+    person_i = gets.chomp.to_i
+    puts
+    print 'Date: '
+    date = gets.chomp
+    rental = Rental.new(date, @people[person_i], @books[book_i])
+    @rentals.push(rental)
+    puts 'Rental created successfully'
   end
 end
