@@ -1,5 +1,6 @@
 require './book'
 require './person'
+require './student'
 
 module Actions
   def list_books
@@ -9,6 +10,7 @@ module Actions
   def list_people
     @people.each { |person| puts person }
   end
+
   def create_person
     print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
     choice = gets.chomp
@@ -21,5 +23,17 @@ module Actions
       puts 'That is not a valid input'
       nil
     end
+  end
+
+  def create_student
+    print 'Age: '
+    age = gets.chomp
+    print 'Name: '
+    name = gets.chomp
+    print 'Has parent permission? [Y/N]: '
+    parent_permission = gets.chomp.downcase == 'y'
+    student = Student.new(age: age, name: name, parent_permission: parent_permission, classroom: @classroom)
+    @people.push(student)
+    puts 'Person created successfully'
   end
 end
