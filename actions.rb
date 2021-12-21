@@ -1,8 +1,8 @@
 require './book'
 require './person'
 require './student'
-require './teacher.rb'
-require './rental.rb'
+require './teacher'
+require './rental'
 
 module Actions
   def list_books
