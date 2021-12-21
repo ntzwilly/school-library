@@ -60,13 +60,6 @@ class App
   end
 end
 
-def list_rentals
-  print 'ID of person: '
-  id = gets.chomp
-  puts 'Rentals:'
-  @rentals.each { |rental| puts rental if rental.person.id == id.to_i }
-end
-
 def main
   app = App.new
   app.start

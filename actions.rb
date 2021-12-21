@@ -76,4 +76,11 @@ module Actions
     @rentals.push(rental)
     puts 'Rental created successfully'
   end
+
+  def list_rentals
+    print 'ID of person: '
+    id = gets.chomp
+    puts 'Rentals:'
+    @rentals.each { |rental| puts rental if rental.person.id == id.to_i }
+  end
 end
