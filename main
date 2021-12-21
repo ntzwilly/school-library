@@ -1,10 +1,4 @@
 #!/usr/bin/env ruby
-require './person'
-require './student'
-require './rental'
-require './book'
-require './teacher'
-require './classroom'
 
 class App
   def initialize
