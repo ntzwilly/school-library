@@ -1,7 +1,7 @@
 require_relative 'app'
 
 module Actions
-  def analyze_choices 
+  def analyze_choices
     app = App.new
     puts 'Welcome to School Library App!', ' ', ' '
     while response != '7'
@@ -32,7 +32,7 @@ module Actions
         puts 'Thank you for using this app!'
       end
 
-    puts "\n"
-   end
+      puts "\n"
+    end
   end
 end
