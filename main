@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 require './app'
 
-def main
+def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
   app = App.new
 
   response = nil

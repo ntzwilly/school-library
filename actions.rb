@@ -1,7 +1,7 @@
 require_relative 'app'
 
 module Actions
-  def analyze_choices
+  def analyze_choices # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
     app = App.new
     puts 'Welcome to School Library App!', ' ', ' '
     while response != '7'
