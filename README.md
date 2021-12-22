@@ -2,11 +2,11 @@
 
 # OOP school library
 
-> Add basic UI
+> Refactor the code
 
 ![app](https://user-images.githubusercontent.com/9049260/146368273-2f3436b0-c24d-457d-a6b9-5d206a40bc12.png)
 
-In this project, I create a form of UI for the school library app. This way it can be invoked as an executable and not something you use in IRB exclusively.
+In this project, we refactor the code of our application
 
 Additional description about the project and its features.
 
@@ -29,6 +29,13 @@ main
 
 - GitHub: [@ntzwilly](https://github.com/ntzwilly)
 - LinkedIn: [@ntazamawilly](https://linkedin.com/in/ntazama-willy-b676b7aa)
+
+👤 **Henry Kc**
+
+- GitHub: [@githubhandle](https://github.com/henrykc24)
+- Twitter: [@twitterhandle](https://twitter.com/henrykc24)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/henry-kc)
+
 
 ## 🤝 Contributing
 
