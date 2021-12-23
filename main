@@ -8,8 +8,8 @@ class App
 
   def initialize
     @classroom = Classroom.new('Microverse 2.0')
-    storage = Storage.new
-    data = storage.hydrate(@classroom)
+    persistor = Storage.new
+    data = persistor.hydrate(@classroom)
 
     @people = data['people']
     @books = data['books']
@@ -25,8 +25,8 @@ class App
       option = gets.chomp
 
       if option == '7'
-        storage = Storage.new
-        storage.store(people: @people, books: @books, rentals: @rentals)
+        persistor = Storage.new
+        persistor.persist(people: @people, books: @books, rentals: @rentals)
         break
       end
 
