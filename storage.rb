@@ -12,4 +12,14 @@ class Storage
       'rentals' => rentals
     }
   end
+
+  def parse_books
+    file = 'books.json'
+
+    if File.exist? file
+      JSON.parse(File.read(file), create_additions: true)
+    else
+      []
+    end
+  end
 end
