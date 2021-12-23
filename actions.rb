@@ -1,38 +1,102 @@
-require_relative 'app'
+require_relative 'person'
+require_relative 'teacher'
+require_relative 'student'
+require_relative 'book'
+require_relative 'rental'
 
 module Actions
-  def analyze_choices # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
-    app = App.new
-    puts 'Welcome to School Library App!', ' ', ' '
-    while response != '7'
-      puts 'Please choose an option by enterin a number:'
-      puts '1 - List all books'
-      puts '2 - List all people'
-      puts '3 - Create a person'
-      puts '4 - Create a book'
-      puts '5 - Create a rental'
-      puts '6 - List all rentals for a given person id'
-      puts '7 - Exit'
-      response = gets.chomp
+  def list_books
+    @books.each { |book| puts book }
+  end
 
-      case response
-      when '1'
-        app.list_books
-      when '2'
-        app.list_people
-      when '3'
-        app.create_person
-      when '4'
-        app.create_book
-      when '5'
-        app.create_rental
-      when '6'
-        app.list_rentals
-      when '7'
-        puts 'Thank you for using this app!'
-      end
+  def list_people
+    @people.each { |person| puts person }
+  end
 
-      puts "\n"
+  def create_person
+    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    option = gets.chomp
+
+    case option
+    when '1'
+      create_student
+    when '2'
+      create_teacher
+    else
+      puts 'That is not a valid input'
+      return
     end
+
+    puts 'Person created successfully'
+  end
+
+  def create_student
+    print 'Age: '
+    age = gets.chomp
+
+    print 'Name: '
+    name = gets.chomp
+
+    print 'Has parent permission? [Y/N]: '
+    parent_permission = gets.chomp.downcase == 'y'
+
+    student = Student.new(name: name, age: age, parent_permission: parent_permission, classroom: @classroom)
+    @people.push(student)
+  end
+
+  def create_teacher
+    print 'Age: '
+    age = gets.chomp
+
+    print 'Name: '
+    name = gets.chomp
+
+    print 'Specialization: '
+    specialization = gets.chomp
+
+    teacher = Teacher.new(name: name, age: age, specialization: specialization)
+    @people.push(teacher)
+  end
+
+  def create_book
+    print 'Title: '
+    title = gets.chomp
+
+    print 'Author: '
+    author = gets.chomp
+
+    book = Book.new(title, author)
+    @books.push(book)
+
+    puts 'Book created successfully'
+  end
+
+  def create_rental
+    puts 'Select a book from the following list by number'
+    @books.each_with_index { |book, idx| puts "#{idx}) #{book}" }
+
+    book_idx = gets.chomp.to_i
+
+    puts
+    puts 'Select a person from the following list by number (not id)'
+    @people.each_with_index { |person, idx| puts "#{idx}) #{person}" }
+
+    person_idx = gets.chomp.to_i
+
+    puts
+    print 'Date: '
+    date = gets.chomp
+
+    rental = Rental.new(date, @books[book_idx], @people[person_idx])
+    @rentals.push(rental)
+
+    puts 'Rental created successfully'
+  end
+
+  def list_rentals
+    print 'ID of person: '
+    id = gets.chomp
+    puts 'Rentals:'
+    @rentals.each { |rental| puts rental if rental.person.id == id.to_i }
   end
 end
