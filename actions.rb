@@ -1,8 +1,8 @@
-require './book'
-require './person'
-require './student'
-require './teacher'
-require './rental'
+require_relative 'person'
+require_relative 'teacher'
+require_relative 'student'
+require_relative 'book'
+require_relative 'rental'
 
 module Actions
   def list_books
@@ -15,65 +15,81 @@ module Actions
 
   def create_person
     print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
-    choice = gets.chomp
-    case choice
+    option = gets.chomp
+
+    case option
     when '1'
       create_student
     when '2'
       create_teacher
     else
       puts 'That is not a valid input'
-      nil
+      return
     end
+
+    puts 'Person created successfully'
   end
 
   def create_student
     print 'Age: '
     age = gets.chomp
+
     print 'Name: '
     name = gets.chomp
+
     print 'Has parent permission? [Y/N]: '
     parent_permission = gets.chomp.downcase == 'y'
-    student = Student.new(age: age, classroom: @classroom, name: name, parent_permission: parent_permission)
+
+    student = Student.new(name: name, age: age, parent_permission: parent_permission, classroom: @classroom)
     @people.push(student)
-    puts 'Person created successfully'
   end
 
   def create_teacher
     print 'Age: '
     age = gets.chomp
+
     print 'Name: '
     name = gets.chomp
+
     print 'Specialization: '
     specialization = gets.chomp
-    teacher = Teacher.new(age: age,specialization: specialization, name: name)
+
+    teacher = Teacher.new(name: name, age: age, specialization: specialization)
     @people.push(teacher)
-    puts 'Person created successfully'
   end
 
   def create_book
     print 'Title: '
     title = gets.chomp
+
     print 'Author: '
     author = gets.chomp
+
     book = Book.new(title, author)
     @books.push(book)
+
     puts 'Book created successfully'
   end
 
   def create_rental
     puts 'Select a book from the following list by number'
-    @books.each_with_index { |book, i| puts "#{i}) #{book}" }
-    book_i = gets.chomp.to_i
+    @books.each_with_index { |book, idx| puts "#{idx}) #{book}" }
+
+    book_idx = gets.chomp.to_i
+
     puts
-    puts 'Select a person from the following list by number (not ID)'
-    @people.each_with_index { |person, i| puts "#{i}) #{person}" }
-    person_i = gets.chomp.to_i
+    puts 'Select a person from the following list by number (not id)'
+    @people.each_with_index { |person, idx| puts "#{idx}) #{person}" }
+
+    person_idx = gets.chomp.to_i
+
     puts
     print 'Date: '
     date = gets.chomp
-    rental = Rental.new(date, @people[person_i], @books[book_i])
+
+    rental = Rental.new(date, @books[book_idx], @people[person_idx])
     @rentals.push(rental)
+
     puts 'Rental created successfully'
   end
 
