@@ -14,7 +14,7 @@ describe Corrector do
 
     context 'When given more than 10 characters' do
       it 'Should return 10 character string' do
-        expect(@corrector.correct_name('Henry Kelechukwu')).to eq 'Henry Kele'
+        expect(@corrector.correct_name('Henry Kelechukwu')).to eq 'Henry kele'
       end
     end
   end

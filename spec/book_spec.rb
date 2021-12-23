@@ -2,7 +2,7 @@ require_relative 'spec_helper'
 
 describe Book do
   before :each do
-    @book = Book.new('Lord of the rings', 'Tolkien')
+    @book = Book.new('Game of thrones', 'George Martin')
   end
 
   describe '#new' do
@@ -19,13 +19,13 @@ describe Book do
 
   describe '#author' do
     it 'returns the correct author' do
-      expect(@book.author).to eq 'Tolkien'
+      expect(@book.author).to eq 'George Martin'
     end
   end
 
   describe '#title' do
     it 'returns the correct title' do
-      expect(@book.title).to eq 'Lord of the rings'
+      expect(@book.title).to eq 'Game of thrones'
     end
   end
 end
