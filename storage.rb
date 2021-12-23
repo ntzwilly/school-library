@@ -54,4 +54,14 @@ class Storage
     end
   end
 
+  def create_teacher(person_json)
+    id = person_json['id'].to_i
+    name = person_json['name']
+    age = person_json['age']
+    specialization = person_json['specialization']
+    teacher = Teacher.new(name: name, age: age, specialization: specialization)
+    teacher.id = id
+    teacher
+  end
+
 end
