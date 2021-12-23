@@ -2,11 +2,11 @@
 
 # OOP school library
 
-> Refactor the code
+> Preserve Data
 
 ![app](https://user-images.githubusercontent.com/9049260/146368273-2f3436b0-c24d-457d-a6b9-5d206a40bc12.png)
 
-In this project, we refactor the code of our application
+In this project we preserve the data from our app and load preserved data on startup.
 
 Additional description about the project and its features.
 
@@ -20,7 +20,7 @@ Additional description about the project and its features.
 ```
 git clone https://github.com/ntzwilly/school-library.git
 cd school-library
-git checkout add-basic-ui
+git checkout data-preservation
 main
 ```
 ## Authors
