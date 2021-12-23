@@ -1,14 +1,63 @@
 #!/usr/bin/env ruby
-require './app'
+require_relative 'classroom'
+require_relative 'actions'
+require_relative 'storage'
 
-def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
-  app = App.new
+class App
+  include Actions
 
-  response = nil
+  def initialize
+    @classroom = Classroom.new('Microverse 2.0')
+    storage = Storage.new
+    data = storage.hydrate(@classroom)
 
-  puts 'Welcome to School Library App!', ' ', ' '
-  while response != '7'
-    puts 'Please choose an option by enterin a number:'
+    @people = data['people']
+    @books = data['books']
+    @rentals = data['rentals']
+  end
+
+  def run
+    puts 'Welcome to School Library App!'
+
+    loop do
+      print_options
+
+      option = gets.chomp
+
+      if option == '7'
+        storage = Storage.new
+        storage.store(people: @people, books: @books, rentals: @rentals)
+        break
+      end
+
+      handle_option option
+    end
+
+    puts 'Thank you for using this app!'
+  end
+
+  def handle_option(option)
+    case option
+    when '1'
+      list_books
+    when '2'
+      list_people
+    when '3'
+      create_person
+    when '4'
+      create_book
+    when '5'
+      create_rental
+    when '6'
+      list_rentals
+    else
+      puts 'That is not a valid option'
+    end
+  end
+
+  def print_options
+    puts
+    puts 'Please choose an option by entering a number:'
     puts '1 - List all books'
     puts '2 - List all people'
     puts '3 - Create a person'
@@ -16,27 +65,12 @@ def main # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
     puts '5 - Create a rental'
     puts '6 - List all rentals for a given person id'
     puts '7 - Exit'
-    response = gets.chomp
-
-    case response
-    when '1'
-      app.list_books
-    when '2'
-      app.list_people
-    when '3'
-      app.create_person
-    when '4'
-      app.create_book
-    when '5'
-      app.create_rental
-    when '6'
-      app.list_rentals
-    when '7'
-      puts 'Thank you for using this app!'
-    end
-
-    puts "\n"
   end
+end
+
+def main
+  app = App.new
+  app.run
 end
 
 main
