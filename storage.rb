@@ -64,4 +64,15 @@ class Storage
     teacher
   end
 
+  def create_student(person_json, classroom)
+    id = person_json['id'].to_i
+    name = person_json['name']
+    age = person_json['age']
+    parent_permission = person_json['parent_permission']
+
+    student = Student.new(name: name, age: age, parent_permission: parent_permission, classroom: classroom)
+    student.id = id
+    student
+  end
+
 end
