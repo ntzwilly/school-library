@@ -38,4 +38,20 @@ class Storage
     end
   end
 
+  def parse_people(classroom)
+    file = 'people.json'
+
+    if File.exist? file
+      JSON.parse(File.read(file)).map do |person_json|
+        if person_json['json_class'] == 'Student'
+          create_student(person_json, classroom)
+        else
+          create_teacher person_json
+        end
+      end
+    else
+      []
+    end
+  end
+
 end
