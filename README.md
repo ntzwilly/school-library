@@ -2,15 +2,11 @@
 
 # OOP school library
 
-> Preserve Data
+> Test-driven development
 
 ![app](https://user-images.githubusercontent.com/9049260/146368273-2f3436b0-c24d-457d-a6b9-5d206a40bc12.png)
 
-In this project we preserve the data from our app and load preserved data on startup.
-
-Additional description about the project and its features.
-
-## Built With
+In this project we implement a class with three methods in test-driven development (TDD). 
 
 - Ruby
 
