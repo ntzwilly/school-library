@@ -2,7 +2,7 @@ class Solver
   def factorial(num)
     num_factorial = 1
     if num.negative?
-      "Factorial of negative number can't be calculated"
+      'Cannot calculate the factorial of a negative number'
     else
       (1..num).each { |p| num_factorial *= p }
       num_factorial
@@ -10,7 +10,7 @@ class Solver
   end
 
   def reverse(string)
-    split_str = string.downcase.chars
+    split_str = string.chars
     reverse_str = []
     split_str.each { |str| reverse_str.unshift(str) }
     reverse_str.join
@@ -24,7 +24,7 @@ class Solver
     elsif (num % 3).zero?
       'fizz'
     else
-      num.to_s
+      num
     end
   end
 end

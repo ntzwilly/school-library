@@ -15,8 +15,8 @@ describe Solver do
     end
 
     it 'Should check if factorial method works as' do
-      factorial_of_3 = @solve.factorial(3)
-      expect(factorial_of_3).to be 6
+      factorial_of_three = @solve.factorial(3)
+      expect(factorial_of_three).to be 6
     end
 
     it 'Should return 1 for factorial of 1' do
@@ -26,7 +26,7 @@ describe Solver do
 
     it 'Should be able to handle negative value' do
       less_than_zero = @solve.factorial(-10)
-      expect(less_than_zero).to eql "Cannot calculate the factorial of a negative number"
+      expect(less_than_zero).to eql 'Cannot calculate the factorial of a negative number'
     end
   end
 
